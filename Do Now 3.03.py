@@ -38,4 +38,4 @@ def mystery_function(x, y):
         z = x * y
     return z
 
-print(mystery_function(1, 2))
+print(mystery_function(5, 2))

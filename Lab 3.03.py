@@ -222,3 +222,64 @@ def shuffled_deck():
 Add on when finished with above:
 Instead of closing the program when the deck is empty, create a way for the user to play again.
 '''
+
+import random 
+
+def shuffled_deck():
+    basic_deck = list(range(2,15)) * 4
+    random.shuffle(basic_deck)
+    return basic_deck
+
+def player_turn(name, deck):
+    card= deck.pop(0)
+    print(f"{name} drew a: {card}")
+
+    return card 
+#create deck of shuffled cards
+deck = shuffled_deck()
+name = input("enter your name: ")
+#player decks
+player1_deck = deck[:26]
+player2_deck = deck[26:]
+
+#score varivles 
+player_score = 0
+computer_score = 0
+point_at_stake = 2
+
+print ("player 1 deck: ")
+print(player1_deck)
+print ("player 2 deck: ")
+print(player2_deck)
+
+
+while len(player1_deck) > 0:
+    print(f"{name}'s score: {player_score}")
+    print(f"Computer's score: {computer_score}")
+    input("Press enter for round.")
+    print()
+    card1 = player_turn(name, player1_deck)
+    card2 = player_turn("computer", player2_deck)
+
+    if card1 > card2:
+        print(f"{name} won this time, and recieves {point_at_stake} points")
+        player_score += point_at_stake
+        point_at_stake = 2
+    elif card2 > card1:
+        print(f"computer won this time, and recieces {point_at_stake} points.")
+        computer_score += point_at_stake
+        point_at_stake = 2
+    else: #tie
+        print("WAR!")
+        point_at_stake += 2
+
+
+print("game over, no more cards")
+print (f"{name}'s score: {player_score}")
+print (f"Computer score: {computer_score}")
+if player_score > computer_score:
+    print (f"{name} won!")
+elif computer_score > player_score:
+    print (f"computer won!")
+else:
+    print("TIEEE!")
