@@ -111,6 +111,20 @@ def print_out_my_favorite(favorite_pet):
 print_out_my_favorite(var_1)
 print(var_2)
 
+var_1 = 'cat'
+var_2 = 'dog'
+
+def print_out_my_favorite(favorite_pet):
+    var_1 = 'dog'
+    var_2 = 'cat'
+    if favorite_pet == var_1:
+        print("My favorite pet is the cat.")
+    var_2 = "cat"
+    if favorite_pet == var_2:
+        print("My favorite pet is the dog.")
+    
+print_out_my_favorite(var_1)
+print(var_1 + " " + var_2)
 
 In script mode
 ---------------------
@@ -139,17 +153,18 @@ prints the final value of my_num
 
 Confirm that the printed values match what you expected.
 '''
-var_1 = 'cat'
-var_2 = 'dog'
+my_num = 10
+print (my_num)
+def add2():
+    global my_num
+    my_num += 2
+def multiply(multiplier):
+    global my_num
+    my_num *= multiplier
+def add2_and_multiply(num):
+    pass
 
-def print_out_my_favorite(favorite_pet):
-    var_1 = 'dog'
-    var_2 = 'cat'
-    if favorite_pet == var_1:
-        print("My favorite pet is the cat.")
-    var_2 = "cat"
-    if favorite_pet == var_2:
-        print("My favorite pet is the dog.")
-    
-print_out_my_favorite(var_1)
-print(var_1 + " " + var_2)
+multiply_num(2)
+
+print (my_num)
+
